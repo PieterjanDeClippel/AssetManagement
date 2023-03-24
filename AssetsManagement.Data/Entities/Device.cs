@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AssetManagment.Models
+namespace AssetManagment.Data.Entities
 {
-    public class Devices
+    public class Device
     {
         [Key]
         public int DeviceId { get; set; }
@@ -15,9 +15,9 @@ namespace AssetManagment.Models
 
         public string SerialNumber { get; set; }
         
-        public virtual DeviceCategories DeviceCategory { get; set; }
+        public virtual DeviceCategory DeviceCategory { get; set; }
 
-        public virtual DeviceLocations DeviceLocation { get; set; }      
+        public virtual DeviceLocation DeviceLocation { get; set; }      
 
     }
 }

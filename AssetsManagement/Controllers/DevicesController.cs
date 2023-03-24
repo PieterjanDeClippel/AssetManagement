@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using AssetManagment.Data;
-using AssetManagment.Models;
+using AssetManagment.Data.Entities;
 
 namespace AssetsManagement.Controllers
 {
@@ -59,17 +59,17 @@ namespace AssetsManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DeviceId,DeviceCategoryId,DeviceLocationId,Description,SerialNumber")] Devices devices)
+        public async Task<IActionResult> Create([Bind("DeviceId,DeviceCategoryId,DeviceLocationId,Description,SerialNumber")] Device device)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(devices);
+                _context.Add(device);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["DeviceCategoryId"] = new SelectList(_context.DeviceCategories, "DeviceCategoryId", "DeviceCategoryName", devices.DeviceCategoryId);
-            ViewData["DeviceLocationId"] = new SelectList(_context.DeviceLocations, "DeviceLocationId", "DeviceLocationName", devices.DeviceLocationId);
-            return View(devices);
+            ViewData["DeviceCategoryId"] = new SelectList(_context.DeviceCategories, "DeviceCategoryId", "DeviceCategoryName", device.DeviceCategoryId);
+            ViewData["DeviceLocationId"] = new SelectList(_context.DeviceLocations, "DeviceLocationId", "DeviceLocationName", device.DeviceLocationId);
+            return View(device);
         }
 
         // GET: Devices/Edit/5
@@ -95,7 +95,7 @@ namespace AssetsManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DeviceId,DeviceCategoryId,DeviceLocationId,Description,SerialNumber")] Devices devices)
+        public async Task<IActionResult> Edit(int id, [Bind("DeviceId,DeviceCategoryId,DeviceLocationId,Description,SerialNumber")] Device devices)
         {
             if (id != devices.DeviceId)
             {

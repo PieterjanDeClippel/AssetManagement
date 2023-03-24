@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AssetManagment.Models
+namespace AssetManagment.Data.Entities
 {
-    public class DeviceLocations
+    public class DeviceLocation
     {
         [Key]
         public int DeviceLocationId { get; set; }
 
         public string DeviceLocationName { get; set; }
 
-        public virtual ICollection<Devices> Devices { get; } = new List<Devices>();
+        public virtual ICollection<Device> Devices { get; } = new List<Device>();
     }
 }

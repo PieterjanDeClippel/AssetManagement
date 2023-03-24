@@ -1,15 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AssetManagment.Models
+namespace AssetManagment.Data.Entities
 {
-    public class DeviceCategories
+    public class DeviceCategory
     {
         [Key]
         public int DeviceCategoryId { get; set; }
 
         public string DeviceCategoryName { get; set; }
 
-        public virtual ICollection<Devices> Devices { get; } = new List<Devices>();
+        public virtual ICollection<Device> Devices { get; } = new List<Device>();
 
     }
 }

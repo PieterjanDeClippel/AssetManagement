@@ -1,4 +1,4 @@
-﻿using AssetManagment.Models;
+﻿using AssetManagment.Data.Entities;
 
 namespace AssetManagment.Data
 {
@@ -11,41 +11,41 @@ namespace AssetManagment.Data
                 return;   // DB has been seeded
             }
 
-            var contact = new Contacts[]
+            var contact = new Contact[]
             {
-                new Contacts{FullName = "John Smith",FirstName="John", LastName="Smith"},
-                new Contacts{FullName = "Jane Doe",FirstName="Jane", LastName="Doe"}
+                new Contact{FullName = "John Smith",FirstName="John", LastName="Smith"},
+                new Contact{FullName = "Jane Doe",FirstName="Jane", LastName="Doe"}
             };
 
-            var location = new DeviceLocations[]
+            var location = new DeviceLocation[]
             {
-                new DeviceLocations{DeviceLocationName="Auction"},
-                new DeviceLocations{DeviceLocationName="Closet"},
-                new DeviceLocations{DeviceLocationName="Conference"},
-                new DeviceLocations{DeviceLocationName="Flex Cube"},
-                new DeviceLocations{DeviceLocationName="Flex Office"},
-                new DeviceLocations{DeviceLocationName="Huddle"},
-                new DeviceLocations{DeviceLocationName="Recycle"},
-                new DeviceLocations{DeviceLocationName="Repair"},
-                new DeviceLocations{DeviceLocationName="User"}
+                new DeviceLocation{DeviceLocationName="Auction"},
+                new DeviceLocation{DeviceLocationName="Closet"},
+                new DeviceLocation{DeviceLocationName="Conference"},
+                new DeviceLocation{DeviceLocationName="Flex Cube"},
+                new DeviceLocation{DeviceLocationName="Flex Office"},
+                new DeviceLocation{DeviceLocationName="Huddle"},
+                new DeviceLocation{DeviceLocationName="Recycle"},
+                new DeviceLocation{DeviceLocationName="Repair"},
+                new DeviceLocation{DeviceLocationName="User"}
             };
 
             context.DeviceLocations.AddRange(location);
             context.SaveChanges();
 
-            var category = new DeviceCategories[]
+            var category = new DeviceCategory[]
             {
-                new DeviceCategories{DeviceCategoryName="Cable"},
-                new DeviceCategories{DeviceCategoryName="Docking Station"},
-                new DeviceCategories{DeviceCategoryName="Headset"},
-                new DeviceCategories{DeviceCategoryName="Keyboard Mouse"},
-                new DeviceCategories{DeviceCategoryName="Laptop"},
-                new DeviceCategories{DeviceCategoryName="Monitor"},
-                new DeviceCategories{DeviceCategoryName="Power Cord"},
-                new DeviceCategories{DeviceCategoryName="Printer"},
-                new DeviceCategories{DeviceCategoryName="Video Conf Equip"},
-                new DeviceCategories{DeviceCategoryName="Wall Display"},
-                new DeviceCategories{DeviceCategoryName="Monitor 2"}
+                new DeviceCategory{DeviceCategoryName="Cable"},
+                new DeviceCategory{DeviceCategoryName="Docking Station"},
+                new DeviceCategory{DeviceCategoryName="Headset"},
+                new DeviceCategory{DeviceCategoryName="Keyboard Mouse"},
+                new DeviceCategory{DeviceCategoryName="Laptop"},
+                new DeviceCategory{DeviceCategoryName="Monitor"},
+                new DeviceCategory{DeviceCategoryName="Power Cord"},
+                new DeviceCategory{DeviceCategoryName="Printer"},
+                new DeviceCategory{DeviceCategoryName="Video Conf Equip"},
+                new DeviceCategory{DeviceCategoryName="Wall Display"},
+                new DeviceCategory{DeviceCategoryName="Monitor 2"}
             };
 
             context.DeviceCategories.AddRange(category);
@@ -55,16 +55,16 @@ namespace AssetManagment.Data
             context.Contacts.AddRange(contact);
             context.SaveChanges();
 
-            var devices = new Devices[]
+            var devices = new Device[]
             {
-                new Devices{DeviceCategoryId=5,DeviceLocationId=9,Description="Surface Laptop",SerialNumber="123456789"},
-                new Devices{DeviceCategoryId=6,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS123456789"},
-                new Devices{DeviceCategoryId=11,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS987654321"},
-                new Devices{DeviceCategoryId=2,DeviceLocationId=9,Description="SURFACE DOCK 2",SerialNumber="SD987654321"},
-                new Devices{DeviceCategoryId=5,DeviceLocationId=9,Description="Surface Laptop",SerialNumber="999888777"},
-                new Devices{DeviceCategoryId=6,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS999888777"},
-                new Devices{DeviceCategoryId=11,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS98798766"},
-                new Devices{DeviceCategoryId=2,DeviceLocationId=9,Description="SURFACE DOCK 2",SerialNumber="SD999888777"}
+                new Device{DeviceCategoryId=5,DeviceLocationId=9,Description="Surface Laptop",SerialNumber="123456789"},
+                new Device{DeviceCategoryId=6,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS123456789"},
+                new Device{DeviceCategoryId=11,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS987654321"},
+                new Device{DeviceCategoryId=2,DeviceLocationId=9,Description="SURFACE DOCK 2",SerialNumber="SD987654321"},
+                new Device{DeviceCategoryId=5,DeviceLocationId=9,Description="Surface Laptop",SerialNumber="999888777"},
+                new Device{DeviceCategoryId=6,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS999888777"},
+                new Device{DeviceCategoryId=11,DeviceLocationId=9,Description="View Sonic Monitor",SerialNumber="VS98798766"},
+                new Device{DeviceCategoryId=2,DeviceLocationId=9,Description="SURFACE DOCK 2",SerialNumber="SD999888777"}
             };
             
             context.Devices.AddRange(devices);
@@ -73,16 +73,16 @@ namespace AssetManagment.Data
             
            
 
-            var assignment = new DeviceAssignments[]
+            var assignment = new DeviceAssignment[]
             {
-                new DeviceAssignments{DeviceId=1,ContactId=1},
-                new DeviceAssignments{DeviceId=2,ContactId=1},
-                new DeviceAssignments{DeviceId=3,ContactId=1},
-                new DeviceAssignments{DeviceId=4,ContactId=1},
-                new DeviceAssignments{DeviceId=5,ContactId=2},
-                new DeviceAssignments{DeviceId=6,ContactId=2},
-                new DeviceAssignments{DeviceId=7,ContactId=2},
-                new DeviceAssignments{DeviceId=8,ContactId=2}
+                new DeviceAssignment{DeviceId=1,ContactId=1},
+                new DeviceAssignment{DeviceId=2,ContactId=1},
+                new DeviceAssignment{DeviceId=3,ContactId=1},
+                new DeviceAssignment{DeviceId=4,ContactId=1},
+                new DeviceAssignment{DeviceId=5,ContactId=2},
+                new DeviceAssignment{DeviceId=6,ContactId=2},
+                new DeviceAssignment{DeviceId=7,ContactId=2},
+                new DeviceAssignment{DeviceId=8,ContactId=2}
             };
 
             context.DeviceAssignments.AddRange(assignment);

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AssetManagment.Models
+namespace AssetManagment.Data.Entities
 {
-    public class Contacts
+    public class Contact
     {
         [Key]
         public int ContactId { get; set; }       

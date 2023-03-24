@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AssetManagment.Models
+namespace AssetManagment.Data.Entities
 {
-    public class DeviceAssignments
+    public class DeviceAssignment
     {
         [Key]
         public int DeviceAssignmentId { get; set; }
